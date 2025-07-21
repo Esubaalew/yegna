@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+    <!-- Primary Meta Tags -->
+    <title>{% block title %}Yegna Farms - Growing Food. Growing Futures.{% endblock %}</title>
+    <meta name="title" content="{% block meta_title %}Yegna Farms - Growing Food. Growing Futures.{% endblock %}">
+    <meta name="description" content="{% block meta_description %}Yegna Farms empowers women in rural Ethiopia through poultry farming, providing 100 chickens per woman for employment, wealth creation, and poverty reduction.{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}women empowerment, Ethiopia, poultry farming, rural development, social enterprise, capacity building, financial inclusion, sustainable agriculture{% endblock %}">
+    <meta name="author" content="Yegna Farms">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#2E7D32">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yegnafarms.com{% block canonical_url %}{% endblock %}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon-16x16.png">
+    <link rel="manifest" href="/static/site.webmanifest">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/static/style.css">
+
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:url" content="https://yegnafarms.com{% block og_url %}{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}Yegna Farms - Growing Food. Growing Futures.{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Empowering women in rural Ethiopia through sustainable poultry farming, providing 100 chickens per woman for employment, wealth creation, and poverty reduction.{% endblock %}">
+    <meta property="og:image" content="https://yegnafarms.com{% block og_image %}/static/images/og-home.png{% endblock %}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Yegna Farms">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yegnafarms.com{% block twitter_url %}{% endblock %}">
+    <meta property="twitter:title" content="{% block twitter_title %}Yegna Farms - Growing Food. Growing Futures.{% endblock %}">
+    <meta property="twitter:description" content="{% block twitter_description %}Empowering women in rural Ethiopia through sustainable poultry farming, providing 100 chickens per woman for employment, wealth creation, and poverty reduction.{% endblock %}">
+    <meta property="twitter:image" content="https://yegnafarms.com{% block twitter_image %}/static/images/og-home.png{% endblock %}"
+
+    <!-- Structured Data for SEO -->
+    {% block structured_data %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Yegna Farms",
+        "description": "Social enterprise empowering women through sustainable poultry farming in rural Ethiopia",
+        "url": "https://yegnafarms.com",
+        "logo": "https://yegnafarms.com/static/images/logo.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "selamget@icloud.com",
+            "contactType": "customer service"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Holeta",
+            "addressCountry": "Ethiopia"
+        },
+        "sameAs": [
+            "https://www.facebook.com/yegnafarms",
+            "https://www.twitter.com/yegnafarms",
+            "https://www.linkedin.com/company/yegnafarms"
+        ]
+    }
+    </script>
+    {% endblock %}
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- Skip Link for Screen Readers -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header role="banner">
+        <!-- Include SVG Icons -->
+        <div style="display: none;" aria-hidden="true">
+            {% include 'portfolio/icons.html' %}
+        </div>
+
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="/static/yegna_logo.svg" alt="Yegna Farms Logo - Rooster symbol representing women's empowerment through poultry farming" class="logo-enhanced" style="height: 70px; width: auto;">
+                <div class="logo-text">
+                    <h1 class="gradient-text">Yegna Farms</h1>
+                    <div class="tagline">Growing Food. Growing Futures.</div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span class="sr-only">Menu</span>
+            </button>
+
+            <nav id="main-nav" role="navigation" aria-label="Main navigation">
+                <a href="/" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}>Home</a>
+                <a href="/about/" class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" {% if request.resolver_match.url_name == 'about' %}aria-current="page"{% endif %}>About</a>
+                <a href="/experiences/" class="nav-link {% if request.resolver_match.url_name == 'experiences' %}active{% endif %}" {% if request.resolver_match.url_name == 'experiences' %}aria-current="page"{% endif %}>Experiences</a>
+                <a href="/partnerships/" class="nav-link {% if request.resolver_match.url_name == 'partnerships' %}active{% endif %}" {% if request.resolver_match.url_name == 'partnerships' %}aria-current="page"{% endif %}>Partnerships</a>
+                <a href="/news/" class="nav-link {% if request.resolver_match.url_name == 'news' %}active{% endif %}" {% if request.resolver_match.url_name == 'news' %}aria-current="page"{% endif %}>News</a>
+                <a href="/contact/" class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" {% if request.resolver_match.url_name == 'contact' %}aria-current="page"{% endif %}>Contact</a>
+                {% if user.is_authenticated %}
+                    <a href="/admin/" class="nav-link">Admin</a>
+                {% endif %}
+
+                <!-- Dark/Light Mode Toggle -->
+                <div class="theme-toggle">
+                    <button class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle dark/light mode" title="Switch between light and dark themes">
+                        <div class="theme-toggle-slider"></div>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-tagline">Growing Food. Growing Futures.</div>
+            <div class="footer-text">
+                &copy; {{ year|default:2025 }} Yegna Farms. Empowering women through sustainable agriculture.
+            </div>
+            <div class="footer-text">
+                Contact: <a href="mailto:selamget@icloud.com" style="color: inherit; text-decoration: underline;">selamget@icloud.com</a> | Holeta, Ethiopia
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for mobile menu and accessibility -->
+    <script>
+        function toggleMobileMenu() {
+            const nav = document.getElementById('main-nav');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            const isExpanded = nav.classList.contains('active');
+
+            nav.classList.toggle('active');
+            toggle.setAttribute('aria-expanded', !isExpanded);
+
+            // Focus management for accessibility
+            if (!isExpanded) {
+                // Menu is opening - focus first link
+                const firstLink = nav.querySelector('.nav-link');
+                if (firstLink) {
+                    setTimeout(() => firstLink.focus(), 100);
+                }
+            }
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('main-nav');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+
+            if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+                nav.classList.remove('active');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Close mobile menu with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const nav = document.getElementById('main-nav');
+                const toggle = document.querySelector('.mobile-menu-toggle');
+
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    toggle.setAttribute('aria-expanded', 'false');
+                    toggle.focus();
+                }
+            }
+        });
+
+        // Smooth scrolling for anchor links (respecting reduced motion preference)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    target.scrollIntoView({
+                        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+                        block: 'start'
+                    });
+
+                    // Focus the target for screen readers
+                    target.focus();
+                }
+            });
+        });
+
+        // Add loading state management
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+
+        // Announce page changes to screen readers
+        function announcePageChange(message) {
+            const announcement = document.createElement('div');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.setAttribute('aria-atomic', 'true');
+            announcement.className = 'sr-only';
+            announcement.textContent = message;
+            document.body.appendChild(announcement);
+
+            setTimeout(() => {
+                document.body.removeChild(announcement);
+            }, 1000);
+        }
+
+        // Dark/Light Mode Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            // Announce theme change to screen readers
+            announcePageChange(`Switched to ${newTheme} mode`);
+
+            // Update button aria-label
+            const toggleBtn = document.querySelector('.theme-toggle-btn');
+            if (toggleBtn) {
+                toggleBtn.setAttribute('aria-label', `Switch to ${newTheme === 'dark' ? 'light' : 'dark'} mode`);
+                toggleBtn.setAttribute('title', `Switch to ${newTheme === 'dark' ? 'light' : 'dark'} theme`);
+            }
+        }
+
+        // Initialize theme on page load
+        function initializeTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const html = document.documentElement;
+
+            if (savedTheme) {
+                html.setAttribute('data-theme', savedTheme);
+            } else if (systemPrefersDark) {
+                html.setAttribute('data-theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
+            }
+
+            // Update button state
+            const toggleBtn = document.querySelector('.theme-toggle-btn');
+            if (toggleBtn) {
+                const currentTheme = html.getAttribute('data-theme');
+                toggleBtn.setAttribute('aria-label', `Switch to ${currentTheme === 'dark' ? 'light' : 'dark'} mode`);
+                toggleBtn.setAttribute('title', `Switch to ${currentTheme === 'dark' ? 'light' : 'dark'} theme`);
+            }
+        }
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (!localStorage.getItem('theme')) {
+                const html = document.documentElement;
+                html.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+            }
+        });
+
+        // Initialize accessibility features
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize theme
+            initializeTheme();
+
+            // Set initial ARIA states
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            if (toggle) {
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+
+            // Add focus indicators for keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    document.body.classList.add('keyboard-navigation');
+                }
+            });
+
+            document.addEventListener('mousedown', function() {
+                document.body.classList.remove('keyboard-navigation');
+            });
+        });
+    </script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

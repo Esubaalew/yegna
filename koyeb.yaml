@@ -1,0 +1,36 @@
+name: yegna-farms
+services:
+  - name: web
+    type: web
+    build:
+      type: docker
+      dockerfile: Dockerfile
+    instance_type: nano
+    regions:
+      - fra
+    scaling:
+      min: 1
+      max: 2
+    ports:
+      - port: 8000
+        protocol: http
+    env:
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        scope: secret
+        value: "your-secret-key-here-change-this"
+      - key: DJANGO_ALLOWED_HOSTS
+        value: "yegnafarms.com,www.yegnafarms.com,.koyeb.app"
+    health_checks:
+      - path: /
+        port: 8000
+        protocol: http
+        initial_delay: 30
+        timeout: 10
+        interval: 30
+        unhealthy_threshold: 3
+        healthy_threshold: 2
+    routes:
+      - path: /
+        port: 8000

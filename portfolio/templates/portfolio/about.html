@@ -1,0 +1,187 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}About Yegna Farms - Our Mission to Empower Women Through Agriculture{% endblock %}
+{% block meta_title %}About Yegna Farms - Our Mission to Empower Women Through Agriculture{% endblock %}
+{% block meta_description %}Learn about Yegna Farms' comprehensive approach to women's empowerment through capacity building, financial inclusion, household wellness, value addition, and strategic partnerships in rural Ethiopia.{% endblock %}
+{% block meta_keywords %}about yegna farms, women empowerment mission, capacity building, financial inclusion, household wellness, value addition, partnerships, rural Ethiopia development{% endblock %}
+
+{% block og_url %}/about/{% endblock %}
+{% block og_title %}About Yegna Farms - Transforming Lives Through Agriculture{% endblock %}
+{% block og_description %}Discover our comprehensive approach to empowering rural women through sustainable poultry farming, capacity building, financial inclusion, and strategic partnerships in Ethiopia.{% endblock %}
+{% block og_image %}/static/images/og-about.svg{% endblock %}
+
+{% block twitter_url %}/about/{% endblock %}
+{% block twitter_title %}About Yegna Farms - Transforming Lives Through Agriculture{% endblock %}
+{% block twitter_description %}Our mission: empowering rural women through capacity building, financial inclusion, household wellness, value addition, and strategic partnerships.{% endblock %}
+{% block twitter_image %}/static/images/og-about.svg{% endblock %}
+
+{% block canonical_url %}/about/{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>About Yegna Farms</h1>
+            <p>A social enterprise dedicated to empowering women through sustainable poultry farming in rural Ethiopia</p>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+            <div>
+                <h2 style="color: var(--primary-green); margin-bottom: 1.5rem;">Our Mission</h2>
+                <p style="font-size: 1.2rem; line-height: 1.7; margin-bottom: 2rem;">
+                    {{ company.description|default:"Yegna Farms is a social enterprise involved in poultry input supplies, educating, and training rural women in poultry husbandry, home economics and saving and credit, implementing the Yegna Farms Model in partnership with public institutions and international institutions." }}
+                </p>
+
+                <div style="background: var(--light-green); padding: 2rem; border-radius: var(--border-radius); border-left: 4px solid var(--secondary-green);">
+                    <h3 style="color: var(--primary-green); margin-bottom: 1rem;">Our Motto</h3>
+                    <p style="font-size: 1.1rem; font-style: italic; color: var(--text-dark); margin: 0;">
+                        "{{ company.motto|default:"Women First - and it is a women's empowerment program designed to enhance the livelihoods of women in Rural Ethiopia" }}"
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <h2 style="color: var(--primary-green); margin-bottom: 1.5rem;">Our Vision</h2>
+                <div style="background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%); color: var(--white); padding: 2.5rem; border-radius: var(--border-radius); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                    <p style="font-size: 1.3rem; line-height: 1.6; margin: 0; color: var(--white); position: relative; z-index: 2;">
+                        {{ company.vision|default:"To catalyze private-public partnerships for women's empowerment in Ethiopia - Chicken is ATM for women" }}
+                    </p>
+                </div>
+
+                <div style="margin-top: 2rem; text-align: center;">
+                    <div style="display: inline-block; background: var(--warm-orange); color: var(--white); padding: 1rem 2rem; border-radius: 50px; font-weight: 600; font-size: 1.1rem;">
+                        100 Chickens = Employment + Wealth + Nutrition
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Yegna Farms Model -->
+    <section>
+        <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary-green);">The Yegna Farms Model</h2>
+        <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; color: var(--text-medium); max-width: 800px; margin-left: auto; margin-right: auto;">
+            Our comprehensive approach addresses multiple aspects of rural women's empowerment through a proven, scalable model.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+            <div class="feature-card floating">
+                <div class="icon-container green">
+                    <svg class="icon" viewBox="0 0 100 100">
+                        <use href="#chicken-icon"/>
+                    </svg>
+                </div>
+                <h3 style="color: var(--primary-green); margin-bottom: 1rem;">100 Productive Chickens</h3>
+                <p style="color: var(--text-medium);">Carefully selected, locally adapted chickens that thrive in Ethiopian conditions and maximize egg production.</p>
+            </div>
+
+            <div class="feature-card orange floating">
+                <div class="icon-container orange">
+                    <svg class="icon" viewBox="0 0 100 100">
+                        <use href="#training-icon"/>
+                    </svg>
+                </div>
+                <h3 style="color: var(--primary-green); margin-bottom: 1rem;">Capacity Building</h3>
+                <p style="color: var(--text-medium);">Comprehensive on-the-job training in poultry husbandry, home economics, and business management.</p>
+            </div>
+
+            <div class="feature-card yellow floating">
+                <div class="icon-container blue">
+                    <svg class="icon" viewBox="0 0 100 100">
+                        <use href="#money-icon"/>
+                    </svg>
+                </div>
+                <h3 style="color: var(--primary-green); margin-bottom: 1rem;">Saving & Credit</h3>
+                <p style="color: var(--text-medium);">Financial empowerment program enabling households to save 2,000 Birr per month through structured savings.</p>
+            </div>
+
+            <div class="feature-card floating">
+                <div class="icon-container green">
+                    <svg class="icon" viewBox="0 0 100 100">
+                        <use href="#house-icon"/>
+                    </svg>
+                </div>
+                <h3 style="color: var(--primary-green); margin-bottom: 1rem;">Household Wellness</h3>
+                <p style="color: var(--text-medium);">Comprehensive solutions for household sanitation and nutrition to improve overall family well-being.</p>
+            </div>
+
+            <div class="feature-card floating">
+                <div class="icon-container orange">
+                    <svg class="icon" viewBox="0 0 100 100">
+                        <use href="#egg-icon"/>
+                    </svg>
+                </div>
+                <h3 style="color: var(--primary-green); margin-bottom: 1rem;">Value Addition</h3>
+                <p style="color: var(--text-medium);">Complete value chain support: egg collection, aggregation, grading, packaging, labeling, and market linkage.</p>
+            </div>
+
+            <div class="feature-card floating">
+                <div class="icon-container blue">
+                    <svg class="icon" viewBox="0 0 100 100">
+                        <use href="#partnership-icon"/>
+                    </svg>
+                </div>
+                <h3 style="color: var(--primary-green); margin-bottom: 1rem;">Partnership Network</h3>
+                <p style="color: var(--text-medium);">Strategic partnerships with government, international organizations, and financial institutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Goals -->
+    <section style="background: linear-gradient(135deg, var(--light-green) 0%, var(--white) 100%);">
+        <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary-green);">Our Impact Goals</h2>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 800px; margin: 0 auto;">
+            <div style="text-align: center; padding: 1.5rem;">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">💼</div>
+                <h3 style="color: var(--primary-green); margin-bottom: 0.5rem;">Employment Creation</h3>
+                <p style="color: var(--text-medium);">Sustainable income opportunities for rural women</p>
+            </div>
+            <div style="text-align: center; padding: 1.5rem;">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">💎</div>
+                <h3 style="color: var(--primary-green); margin-bottom: 0.5rem;">Wealth Creation</h3>
+                <p style="color: var(--text-medium);">Building financial assets and economic independence</p>
+            </div>
+            <div style="text-align: center; padding: 1.5rem;">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">📈</div>
+                <h3 style="color: var(--primary-green); margin-bottom: 0.5rem;">Poverty Reduction</h3>
+                <p style="color: var(--text-medium);">Breaking the cycle of rural poverty through sustainable agriculture</p>
+            </div>
+            <div style="text-align: center; padding: 1.5rem;">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🥗</div>
+                <h3 style="color: var(--primary-green); margin-bottom: 0.5rem;">Nutrition Security</h3>
+                <p style="color: var(--text-medium);">Eat for health, not for hunger - improving family nutrition</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section style="background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%); color: var(--white); text-align: center;">
+        <h2 style="color: var(--white); margin-bottom: 1rem;">Join Our Mission</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem; color: rgba(255,255,255,0.9); max-width: 600px; margin-left: auto; margin-right: auto;">
+            Partner with us to scale this proven model and empower more women across Ethiopia.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="/partnerships/" class="btn btn-secondary">View Partnerships</a>
+            <a href="/contact/" class="btn" style="background: var(--warm-orange); color: var(--white);">Contact Us</a>
+        </div>
+    </section>
+{% endblock %}
+
+{% block extra_head %}
+<style>
+    @media (max-width: 768px) {
+        section > div[style*="grid-template-columns: 1fr 1fr"] {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+        }
+
+        section > div[style*="grid-template-columns: repeat(2, 1fr)"] {
+            grid-template-columns: 1fr !important;
+        }
+    }
+</style>
+{% endblock %}

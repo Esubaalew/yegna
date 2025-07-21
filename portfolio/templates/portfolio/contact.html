@@ -1,0 +1,170 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Contact Yegna Farms - Get In Touch With Our Team{% endblock %}
+{% block meta_title %}Contact Yegna Farms - Get In Touch With Our Team{% endblock %}
+{% block meta_description %}Connect with Yegna Farms to learn about our women's empowerment programs, partnership opportunities, or how you can support sustainable agriculture in rural Ethiopia.{% endblock %}
+{% block meta_keywords %}contact yegna farms, get in touch, partnership opportunities, women empowerment programs, support rural Ethiopia, sustainable agriculture contact{% endblock %}
+
+{% block og_url %}/contact/{% endblock %}
+{% block og_title %}Contact Yegna Farms - Get In Touch{% endblock %}
+{% block og_description %}Ready to join our mission? Contact us to learn about partnership opportunities, volunteer programs, or how you can support women's empowerment in rural Ethiopia.{% endblock %}
+{% block og_image %}/static/images/og-contact.svg{% endblock %}
+
+{% block twitter_url %}/contact/{% endblock %}
+{% block twitter_title %}Contact Yegna Farms - Get In Touch{% endblock %}
+{% block twitter_description %}Connect with us to learn about partnership opportunities and how you can support women's empowerment in rural Ethiopia.{% endblock %}
+{% block twitter_image %}/static/images/og-contact.svg{% endblock %}
+
+{% block canonical_url %}/contact/{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Get In Touch</h1>
+            <p>Ready to partner with us or learn more about our women's empowerment programs? We'd love to hear from you.</p>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+            <!-- Contact Person -->
+            <div>
+                <h2 style="color: var(--primary-green); margin-bottom: 2rem;">Contact Information</h2>
+
+                <div style="background: linear-gradient(135deg, var(--light-green) 0%, var(--white) 100%); padding: 2.5rem; border-radius: var(--border-radius); border-left: 4px solid var(--secondary-green); margin-bottom: 2rem;">
+                    <div style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                        <div style="width: 60px; height: 60px; background: var(--primary-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; color: var(--white); font-size: 1.5rem;">👩‍💼</div>
+                        <div>
+                            <h3 style="color: var(--primary-green); margin: 0;">{{ company.contact_name|default:"Selam Getnet" }}</h3>
+                            <p style="color: var(--text-medium); margin: 0; font-weight: 500;">{{ company.contact_role|default:"Managing Director" }}</p>
+                        </div>
+                    </div>
+
+                    <div style="space-y: 1rem;">
+                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <span style="color: var(--secondary-green); margin-right: 1rem; font-size: 1.2rem;">📧</span>
+                            <a href="mailto:{{ company.contact_email|default:'selamget@icloud.com' }}" style="color: var(--primary-green); text-decoration: none; font-weight: 500; font-size: 1.1rem;">
+                                {{ company.contact_email|default:"selamget@icloud.com" }}
+                            </a>
+                        </div>
+
+                        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                            <span style="color: var(--secondary-green); margin-right: 1rem; font-size: 1.2rem;">🌍</span>
+                            <span style="color: var(--text-medium); font-size: 1.1rem;">{{ company.contact_languages|default:"English, Amharic" }}</span>
+                        </div>
+
+                        <div style="display: flex; align-items: center;">
+                            <span style="color: var(--secondary-green); margin-right: 1rem; font-size: 1.2rem;">📍</span>
+                            <span style="color: var(--text-medium); font-size: 1.1rem;">Holeta, Ethiopia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Contact -->
+                <div style="background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow-light); border: 1px solid rgba(76, 175, 80, 0.1);">
+                    <h3 style="color: var(--primary-green); margin-bottom: 1rem;">Quick Contact</h3>
+                    <a href="mailto:{{ company.contact_email|default:'selamget@icloud.com' }}?subject=Partnership Inquiry - Yegna Farms"
+                       class="btn btn-primary"
+                       style="display: inline-block; margin-bottom: 1rem; text-decoration: none;">
+                        Send Email
+                    </a>
+                    <p style="color: var(--text-medium); font-size: 0.95rem; margin: 0;">
+                        We typically respond within 24 hours during business days.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Partnership Opportunities -->
+            <div>
+                <h2 style="color: var(--primary-green); margin-bottom: 2rem;">Partnership Opportunities</h2>
+
+                <div style="space-y: 1.5rem;">
+                    <div style="background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow-light); border-top: 4px solid var(--secondary-green); margin-bottom: 1.5rem;">
+                        <h3 style="color: var(--primary-green); margin-bottom: 1rem;">🤝 Development Partners</h3>
+                        <p style="color: var(--text-medium); margin-bottom: 1rem;">Join our network of international organizations, NGOs, and development agencies.</p>
+                        <ul style="color: var(--text-medium); padding-left: 1.5rem;">
+                            <li>Program implementation partnerships</li>
+                            <li>Funding and grant opportunities</li>
+                            <li>Technical assistance and capacity building</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow-light); border-top: 4px solid var(--warm-orange); margin-bottom: 1.5rem;">
+                        <h3 style="color: var(--primary-green); margin-bottom: 1rem;">🏛️ Government Partnerships</h3>
+                        <p style="color: var(--text-medium); margin-bottom: 1rem;">Collaborate with local and regional government institutions.</p>
+                        <ul style="color: var(--text-medium); padding-left: 1.5rem;">
+                            <li>Policy development and implementation</li>
+                            <li>Public-private partnership models</li>
+                            <li>Scaling successful programs</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow-light); border-top: 4px solid var(--warm-yellow); margin-bottom: 1.5rem;">
+                        <h3 style="color: var(--primary-green); margin-bottom: 1rem;">🏦 Financial Partners</h3>
+                        <p style="color: var(--text-medium); margin-bottom: 1rem;">Work with microfinance institutions and banks to expand access to credit.</p>
+                        <ul style="color: var(--text-medium); padding-left: 1.5rem;">
+                            <li>Microfinance program development</li>
+                            <li>Savings and credit schemes</li>
+                            <li>Financial literacy training</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Facilities -->
+    <section style="background: linear-gradient(135deg, var(--light-green) 0%, var(--white) 100%);">
+        <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary-green);">Our Facilities</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <div style="background: var(--white); padding: 2.5rem; border-radius: var(--border-radius); box-shadow: var(--shadow-light);">
+                <h3 style="color: var(--primary-green); margin-bottom: 1rem;">Holeta Processing Hub</h3>
+                <p style="color: var(--text-medium); font-size: 1.1rem; margin-bottom: 1.5rem;">
+                    Holeta city Administration has allocated 10,000 M² of land for Yegna Farms to build a demonstration and egg and meat processing hub.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏭</div>
+                        <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Processing Facility</h4>
+                        <p style="color: var(--text-medium); font-size: 0.95rem;">Modern egg and meat processing equipment</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📚</div>
+                        <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Training Center</h4>
+                        <p style="color: var(--text-medium); font-size: 0.95rem;">Demonstration and capacity building facility</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🚚</div>
+                        <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Distribution Hub</h4>
+                        <p style="color: var(--text-medium); font-size: 0.95rem;">Market linkage and logistics center</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section style="background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%); color: var(--white); text-align: center;">
+        <h2 style="color: var(--white); margin-bottom: 1rem;">Ready to Make a Difference?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem; color: rgba(255,255,255,0.9); max-width: 600px; margin-left: auto; margin-right: auto;">
+            Whether you're interested in partnership opportunities, funding our programs, or learning more about our model, we're here to help.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="mailto:{{ company.contact_email|default:'selamget@icloud.com' }}?subject=Partnership Inquiry" class="btn btn-secondary">Start a Conversation</a>
+            <a href="/about/" class="btn" style="background: var(--warm-orange); color: var(--white);">Learn Our Model</a>
+        </div>
+    </section>
+{% endblock %}
+
+{% block extra_head %}
+<style>
+    @media (max-width: 768px) {
+        section > div[style*="grid-template-columns: 1fr 1fr"] {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+        }
+    }
+</style>
+{% endblock %}

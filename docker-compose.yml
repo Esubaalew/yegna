@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=True
+      - SECRET_KEY=your-development-secret-key
+      - DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,[::1]
+    volumes:
+      - .:/app
+      - static_volume:/app/staticfiles
+    # The entrypoint will handle migrations, static files, and data seeding
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+volumes:
+  static_volume:

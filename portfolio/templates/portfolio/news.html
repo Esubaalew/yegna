@@ -1,0 +1,151 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}News & Updates - Yegna Farms{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>News & Updates</h1>
+            <p>Stay informed about our latest achievements, partnerships, and impact stories</p>
+        </div>
+    </section>
+
+    <!-- News Articles -->
+    <section>
+        {% if news_list %}
+            <h2 style="text-align: center; margin-bottom: 3rem; color: var(--primary-green);">Latest News</h2>
+
+            <div style="display: grid; gap: 3rem;">
+                {% for item in news_list %}
+                <article style="background: var(--white); padding: 3rem; border-radius: var(--border-radius); box-shadow: var(--shadow-medium); border-left: 6px solid var(--secondary-green); position: relative; overflow: hidden;">
+                    <!-- Article Header -->
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+                        <div style="flex: 1;">
+                            <h3 style="color: var(--primary-green); margin-bottom: 0.5rem; font-size: 1.8rem; line-height: 1.3;">{{ item.title }}</h3>
+                            <div style="display: flex; align-items: center; gap: 1rem; color: var(--text-light); font-size: 0.95rem;">
+                                <span style="display: flex; align-items: center; gap: 0.3rem;">
+                                    📅 {{ item.created_at|date:'F d, Y' }}
+                                </span>
+                                <span style="display: flex; align-items: center; gap: 0.3rem;">
+                                    🕒 {{ item.created_at|date:'g:i A' }}
+                                </span>
+                            </div>
+                        </div>
+                        <div style="background: var(--light-green); padding: 0.5rem 1rem; border-radius: 20px; color: var(--primary-green); font-weight: 600; font-size: 0.9rem;">
+                            📰 News Update
+                        </div>
+                    </div>
+
+                    <!-- Article Content -->
+                    <div style="color: var(--text-medium); font-size: 1.1rem; line-height: 1.8;">
+                        {{ item.content|linebreaks }}
+                    </div>
+
+                    <!-- Article Footer -->
+                    <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(76, 175, 80, 0.1); display: flex; justify-content: between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <div style="color: var(--text-light); font-size: 0.9rem;">
+                            Published {{ item.created_at|timesince }} ago
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <span style="background: rgba(76, 175, 80, 0.1); color: var(--secondary-green); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 500;">#YegnaFarms</span>
+                            <span style="background: rgba(76, 175, 80, 0.1); color: var(--secondary-green); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 500;">#WomenEmpowerment</span>
+                            <span style="background: rgba(76, 175, 80, 0.1); color: var(--secondary-green); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 500;">#Ethiopia</span>
+                        </div>
+                    </div>
+
+                    <!-- Decorative Element -->
+                    <div style="position: absolute; top: -10px; right: -10px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent-green), rgba(129, 199, 132, 0.3)); border-radius: 50%; opacity: 0.3;"></div>
+                </article>
+                {% endfor %}
+            </div>
+
+            <!-- Pagination or Load More (if needed) -->
+            {% if news_list|length > 5 %}
+            <div style="text-align: center; margin-top: 3rem;">
+                <div style="background: var(--light-green); padding: 1rem; border-radius: var(--border-radius); display: inline-block;">
+                    <span style="color: var(--primary-green); font-weight: 600;">Showing {{ news_list|length }} articles</span>
+                </div>
+            </div>
+            {% endif %}
+
+        {% else %}
+            <!-- No News State -->
+            <div style="text-align: center; padding: 4rem 2rem;">
+                <div style="width: 120px; height: 120px; background: var(--light-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 3rem;">📰</div>
+                <h3 style="color: var(--primary-green); margin-bottom: 1rem; font-size: 1.8rem;">No News Yet</h3>
+                <p style="color: var(--text-medium); font-size: 1.1rem; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+                    We're working hard to bring you the latest updates about our programs and impact. Check back soon for exciting news about Yegna Farms!
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="/about/" class="btn btn-primary">Learn About Us</a>
+                    <a href="/contact/" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        {% endif %}
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section style="background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%); color: var(--white); text-align: center;">
+        <h2 style="color: var(--white); margin-bottom: 1rem;">Stay Updated</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem; color: rgba(255,255,255,0.9); max-width: 600px; margin-left: auto; margin-right: auto;">
+            Want to receive the latest news and updates about our women's empowerment programs? Get in touch with us!
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="mailto:selamget@icloud.com?subject=Newsletter Subscription" class="btn btn-secondary">Subscribe to Updates</a>
+            <a href="/partnerships/" class="btn" style="background: var(--warm-orange); color: var(--white);">View Partnerships</a>
+        </div>
+    </section>
+
+    <!-- Related Links -->
+    <section style="background: var(--light-green);">
+        <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary-green);">Explore More</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 800px; margin: 0 auto;">
+            <a href="/experiences/" style="background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow-light); text-decoration: none; text-align: center; transition: var(--transition); display: block;">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">📈</div>
+                <h3 style="color: var(--primary-green); margin-bottom: 0.5rem;">Our Impact</h3>
+                <p style="color: var(--text-medium); margin: 0;">See how we're transforming lives across Ethiopia</p>
+            </a>
+
+            <a href="/partnerships/" style="background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow-light); text-decoration: none; text-align: center; transition: var(--transition); display: block;">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🤝</div>
+                <h3 style="color: var(--primary-green); margin-bottom: 0.5rem;">Partnerships</h3>
+                <p style="color: var(--text-medium); margin: 0;">Discover our network of global collaborations</p>
+            </a>
+
+            <a href="/about/" style="background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow-light); text-decoration: none; text-align: center; transition: var(--transition); display: block;">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌱</div>
+                <h3 style="color: var(--primary-green); margin-bottom: 0.5rem;">Our Model</h3>
+                <p style="color: var(--text-medium); margin: 0;">Learn about our comprehensive approach</p>
+            </a>
+        </div>
+    </section>
+{% endblock %}
+
+{% block extra_head %}
+<style>
+    article:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-heavy);
+        transition: var(--transition);
+    }
+
+    section a[href^="/experiences/"]:hover,
+    section a[href^="/partnerships/"]:hover,
+    section a[href^="/about/"]:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-medium);
+    }
+
+    @media (max-width: 768px) {
+        article {
+            padding: 2rem 1.5rem !important;
+        }
+
+        article > div[style*="display: flex; justify-content: space-between"] {
+            flex-direction: column !important;
+            align-items: start !important;
+        }
+    }
+</style>
+{% endblock %}
