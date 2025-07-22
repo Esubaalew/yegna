@@ -1,47 +1,16 @@
-#!/bin/bash
+#!/bin/sh
 
 # Exit on any error
 set -e
 
 echo "🚀 Starting Yegna Farms deployment..."
 
-# Function to wait for database (if using external DB)
-wait_for_db() {
-    echo "⏳ Waiting for database to be ready..."
-    python << END
-import sys
-import time
-import os
-import django
-from django.conf import settings
+# Activate virtual environment
+. /app/venv/bin/activate
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'yegna_portfolio.settings')
-django.setup()
-
-from django.db import connections
-from django.db.utils import OperationalError
-
-db_conn = connections['default']
-retries = 30
-while retries > 0:
-    try:
-        db_conn.ensure_connection()
-        break
-    except OperationalError:
-        retries -= 1
-        print(f"Database unavailable, waiting... ({retries} retries left)")
-        time.sleep(2)
-
-if retries == 0:
-    print("❌ Database connection failed!")
-    sys.exit(1)
-
-print("✅ Database connection successful!")
-END
-}
-
-# Wait for database
-wait_for_db
+# Upgrade pip and install requirements
+pip install --upgrade pip
+pip install -r requirements.txt
 
 # Run migrations
 echo "🗄️ Running database migrations..."
