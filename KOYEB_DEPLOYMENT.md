@@ -74,7 +74,7 @@ DJANGO_ALLOWED_HOSTS=yegnafarms.com,www.yegnafarms.com,.koyeb.app
    ```
    DEBUG=False
    SECRET_KEY=your-super-secret-key-here
-   DJANGO_SETTINGS_MODULE=yegna_farms.settings_production
+   DJANGO_SETTINGS_MODULE=yegna_portfolio.settings
    ALLOWED_HOSTS=yegnafarms.com,www.yegnafarms.com,.koyeb.app
    DATABASE_URL=sqlite:///db.sqlite3
    SECURE_SSL_REDIRECT=True
@@ -172,7 +172,7 @@ Value: [your-app-name].koyeb.app
 ```bash
 DEBUG=False
 SECRET_KEY=your-super-secret-key-generate-new-one
-DJANGO_SETTINGS_MODULE=yegna_farms.settings_production
+DJANGO_SETTINGS_MODULE=yegna_portfolio.settings
 ALLOWED_HOSTS=yegnafarms.com,www.yegnafarms.com,.koyeb.app
 ```
 
