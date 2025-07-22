@@ -1,4 +1,4 @@
-name: yegna-farms
+name: yegna-portfolio
 services:
   - name: web
     type: web
@@ -21,7 +21,9 @@ services:
         scope: secret
         value: "your-secret-key-here-change-this"
       - key: DJANGO_ALLOWED_HOSTS
-        value: "yegnafarms.com,www.yegnafarms.com,.koyeb.app"
+        value: "yegnaportfolio.com,www.yegnaportfolio.com,.koyeb.app"
+      - key: DJANGO_SETTINGS_MODULE
+        value: "yegna_portfolio.settings"
     health_checks:
       - path: /
         port: 8000
